@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>My first page</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
+      <div id="header" class="header">
+         <nav class="zone green">
+            <ul class="main-nav">
+               <li><img src="/img/karma tech logo.png" height="100px" width="240px" align="right"></li>
+               <li class="app-name">
+                  <h1 style="font-size: 40px; color: #757323; font-family: Verdana; margin-top: 20px; margin-left: 10px;"><strong>KTSM</strong>Portal</h1>
+                  <!-- <p style="color: #757323; font-size: 20px"><i>Karma Technologies Service Management</i></p> -->
+               </li>
+               <li style="margin-top: 100px;">
+                  <button class="btn btn-primary notificationbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-left: 250px; margin-right:10px; background-color: #1abc9c; border-color: #1abc9c;">
+                  Notifications <span class="badge text-bg-secondary">4</span>	
+                  </button>
+                  <!-- Alert Notification off-canvas  -->
+                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                     <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Notifications for you...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                     </div>
+                     <div class="offcanvas-body">
+                        <!--Accordian Start -->
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                           <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                 Open
+                                 </button>
+                              </h2>
+                              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                 <div class="accordion-body">
+                                    <a href="#">KTIR-00001-230823</a>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                 Assigned
+                                 </button>
+                              </h2>
+                              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                 <div class="accordion-body">
+                                    <a href="#">KTIR-00002-230823</a>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                 Pending
+                                 </button>
+                              </h2>
+                              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                 <div class="accordion-body">
+                                    <a href="#">KTIR-00003-230823</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!--Accordian end -->	
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="row">
+                     <div class="col">
+                        <div class="searchcontainer"  style="margin-top: 105px; float: right; margin-left: 5px;">
+                           <input type="text" id="searchbox" placeholder="Search Incident / Change.." name="search" value="" />
+                           <button type="submit" id="searchtkt" name="searchtkt"><i class="fa fa-search" Value="SEARCH"></i></button>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="row">
+                     <div class="col">
+                        <div style="margin-bottom: 65px; margin-left: 200px; margin-top: 5px;">
+                           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#fff; text-align:center; padding: 3px; color: black;" >
+                           <%= user.charAt(0).toUpperCase() + user.slice(1) %>
+                           </button>
+                           <ul class="dropdown-menu" style="text-align: center;">
+                              <li><a class="dropdown-item" href="#">Setting</a></li>
+                              <li><a class="dropdown-item" href="/users/logout">Logout</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" style="margin-left:5px; margin-bottom: 5px; background-color: #1abc9c; border-color: #1abc9c;">Timesheet</button>
+                  </div>
+                  <!-- <a data-bs-toggle="modal" data-bs-target="#exampleModal">Timesheet</a> -->
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </head>
+   <body>
+      <div id="contianer">
+         <div class="tab">
+            <button class="tablinks" onclick="openFORM(event, 'TicketIncident')">Ticket / Incident</button>
+            <button class="tablinks" onclick="openFORM(event, 'Change Request')">Change Request</button>
+            <button class="tablinks" onclick="openFORM(event, 'Reports')">Reports</button>
+            <button class="tablinks" onclick="openFORM(event, 'RCA')">RCA</button>
+            <button class="tablinks" onclick="openFORM(event, 'Known Issue Repository')">Known Issue Repository</button>
+            <button class="tablinks" onclick="openFORM(event, 'Project Documents')">Project Documents</button>
+         </div>
+         <div id="TicketIncident" class="tabcontent">
+            <h3>Ticket / Incident</h3>
+            <form id="IncidentManagementForm" action="/incident" method="POST">
+               <div class="row">
+                  <div class="col">
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="incidentid">Incident ID</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(messages.success_msg) { %>
+                           <input type="text" id="incidentidval" name="incidentidval" placeholder="Incident ID.." value="<%= messages.success_msg %>">
+                           <% } else if(searchResult.length > 0) {%>
+                           <input type="text" id="incidentidval" name="incidentidval" placeholder="Incident ID.." value="<%= searchResult[0].ticket_no %>">
+                           <% } else { %>
+                           <input type="text" id="incidentidval" name="incidentidval" placeholder="Incident ID.." value="">
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="companyname">Company Name</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>
+                           <input type="text" id="companyname" name="companyname" placeholder="Company name.." value="<%= searchResult[0].company_name %>">
+                           <%} else {%>	
+                           <input type="text" id="companyname" name="companyname" placeholder="Company name.." value="">
+                           <% } %>	
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="companynum">Company Phone.</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>
+                           <input type="text" id="companynum" name="companynum" placeholder="Company Phone.." value="<%= searchResult[0].company_phone %>">
+                           <% } else { %>
+                           <input type="text" id="companynum" name="companynum" placeholder="Company Phone.." value="">
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="companyadd">Company Address</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>				    	
+                           <input type="text" id="companyadd" name="companyadd" placeholder="Company Address.." value="<%= searchResult[0].company_address %>">
+                           <% } else { %>
+                           <input type="text" id="companyadd" name="companyadd" placeholder="Company Address.." value="">
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="reportdate">Report Date</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>				    	
+                           <input type="date" id="reportdate" name="reportdate" placeholder="Report Date.." value="<%= moment(searchResult[0].reported_date).format('YYYY-MM-DD') %>">
+                           <% } else { %>
+                           <input type="date" id="reportdate" name="reportdate" placeholder="Report Date..">
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="reportedby">Reported By</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>				    	
+                           <input type="text" id="reportedby" name="reportedby" placeholder="Reported By.." value="<%= searchResult[0].reported_by %>">
+                           <% } else { %>
+                           <input type="text" id="reportedby" name="reportedby" placeholder="Reported By..">				      
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="assignedto">Assigned To</label>
+                        </div>
+                        <div class="col-75">
+                           <select name="assignedto" id="assignedto">
+                              <% if(searchResult.length > 0) { %>
+                              <option value="<%= searchResult[0].assigned_to %>" name="<%= searchResult[0].assigned_to %>"><%= searchResult[0].assigned_to %></option>
+                              <% for(var i = 0;i < ddAssgnUsersVals.length; i++) { %>
+                              <% if(searchResult[0].assigned_to !== ddAssgnUsersVals[i].username) {%>
+                              <option value="<%= ddAssgnUsersVals[i].username %>" name="<%= ddAssgnUsersVals[i].username %>"><%= ddAssgnUsersVals[i].username %></option>
+                              <% } %>
+                              <% } %>
+                              <% } else {%>
+                              <% for(var i = 0;i < ddAssgnUsersVals.length; i++) { %>
+                              <option value="<%= ddAssgnUsersVals[i].username %>" name="<%= ddAssgnUsersVals[i].username %>"><%= ddAssgnUsersVals[i].username %></option>
+                              <% } %>
+                              <% } %>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="clientdepartment">Client / Department</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>				    	
+                           <input type="text" id="clientdepartment" name="clientdepartment" placeholder="Client / Department.." value="<%= searchResult[0].department_name %>">
+                           <% } else { %>		
+                           <input type="text" id="clientdepartment" name="clientdepartment" placeholder="Client / Department.." value=""> 
+                           <% } %>
+                        </div>
+                     </div>
+                     <strong>Incident Details:</strong> <br>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="dateandtime">Date and Time</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>   	
+                           <input type="datetime-local" id="dateandtime" name="dateandtime" placeholder="Date and Time.." value="<%= moment(searchResult[0].incident_date).format('YYYY-MM-DD HH:mm:ss') %>">
+                           <% } else { %>		
+                           <input type="datetime-local" id="dateandtime" name="dateandtime" placeholder="Date and Time.." value="">
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="impactedservices">Impacted Services</label>
+                        </div>
+                        <div class="col-75">
+                           <select name="impactedservices" id="impactedservices">
+                              <% if(searchResult.length > 0) { %>
+                              <option value="<%= searchResult[0].impacted_services %>" name="<%= searchResult[0].impacted_services %>"><%= searchResult[0].impacted_services %></option>
+                              <% } %>
+                              <% for(var i = 0;i < ddImpctdSrvcVals.length;i++) { %>
+                              <% if(searchResult[0].impacted_services !== ddImpctdSrvcVals[i].impactedservice) {%>
+                              <option value="<%= ddImpctdSrvcVals[i].impactedservice %>" name="<%= ddImpctdSrvcVals[i].impactedservice %>"><%= ddImpctdSrvcVals[i].impactedservice %></option>
+                              <% } %>
+                              <% } %>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="servicelevelagreement">Service Level Agreement</label>
+                        </div>
+                        <div class="col-75">
+                           <% if(searchResult.length > 0) { %>				    	
+                           <input type="text" id="servicelevelagreement" name="servicelevelagreement" placeholder="Service Level Agreement.." value="<%= searchResult[0].servicelevelagreement %>">
+                           <% } else { %>
+                           <input type="text" id="servicelevelagreement" name="servicelevelagreement" placeholder="Service Level Agreement.." value="">
+                           <% } %>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="incidenttype">Incident Type</label>
+                        </div>
+                        <div class="col-75">
+                           <select name="incidenttype" id="incidenttype">
+                              <% if(searchResult.length > 0) { %>
+                              <option value="<%= searchResult[0].incident_type %>" name="<%= searchResult[0].incident_type %>"><%= searchResult[0].incident_type %></option>
+                              <% } %>
+                              <% for(var i = 0;i < ddIncidentType.length; i++) { %>
+                              <% if(searchResult[0].incident_type !== ddIncidentType[i].incidenttype) {%>
+                              <option value="<%= ddIncidentType[i].incidenttype %>" name="<%= ddIncidentType[i].incidenttype %>"><%= ddIncidentType[i].incidenttype %></option>
+                              <% } %>
+                              <% } %>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="incidentseverty">Severity</label>
+                        </div>
+                        <div class="col-75">
+                           <select name="severity" id="severity">
+                              <% if(searchResult.length > 0) { %>
+                              <option value="<%= searchResult[0].severity %>" name="<%= searchResult[0].severity %>"><%= searchResult[0].severity %></option>
+                              <% } %>
+                              <% for(var i = 0;i < ddIncidentSvrty.length; i++) { %>
+                              <% if (searchResult[0].severity !== ddIncidentSvrty[i].incidentseverity) {%>
+                              <option value="<%= ddIncidentSvrty[i].incidentseverity %>" name="<%= ddIncidentSvrty[i].incidentseverity %>"><%= ddIncidentSvrty[i].incidentseverity %></option>
+                              <% } %>
+                              <% } %>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-25">
+                           <label for="status">Status</label>
+                        </div>
+                        <div class="col-75">
+                           <select name="status" class="status" id="status">
+                              <% if(searchResult.length > 0) { %>
+                              <option value="<%= searchResult[0].status %>" name="<%= searchResult[0].status %>"><%= searchResult[0].status %></option>
+                              <% } %>
+                              <% for(var i = 0;i < ddIncidentStatus.length; i++) { %>
+                              <% if (searchResult[0].status !== ddIncidentStatus[i].incidentstatus ) {%>
+                              <option value="<%= ddIncidentStatus[i].incidentstatus %>" name="<%= ddIncidentStatus[i].incidentstatus %>"><%= ddIncidentStatus[i].incidentstatus %></option>
+                              <% } %>
+                              <% } %>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <div class="row">
+                        <div class="col" style="color: #615F1D;">
+                           <label for="incidentsummary">Incident Summary</label>
+                        </div>
+                        <div class="col">
+                           <% if(searchResult.length > 0) { %>
+                           <textarea id="incidentsummary" name="incidentsummary" rows="4" columns="50" style="height: 100px; width: 400px" value="<%= searchResult[0].incident_summary %>"><%= searchResult[0].incident_summary %></textarea>
+                           <% } else { %>
+                           <textarea id="incidentsummary" name="incidentsummary" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+                           <% } %>	
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col" style="color: #615F1D; margin-top: 10px">
+                           <label for="impact">Impact</label>
+                        </div>
+                        <div class="col">
+                           <% if(searchResult.length > 0) { %>				    	
+                           <textarea id="impact" name="impact" rows="4" columns="50" style="height: 100px; width: 400px; margin-top: 10px" value="<%= searchResult[0].impact %>"><%= searchResult[0].impact %></textarea>
+                           <%} else {%>
+                           <textarea id="impact" name="impact" rows="4" columns="50" style="height: 100px; width: 400px; margin-top: 10px"></textarea>		
+                           <% } %>	
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col" style="margin-top: 20px; color: #615F1D;">
+                           <label for="filebrowse">Attachment</label>
+                        </div>
+                        <div class="col" style="margin-top: 20px;">
+                           <% if(searchResult.length > 0) { %>	
+                           <label class="file"><%= searchResult[0].attachement_url %></label>
+                           <%} else {%>
+                           <label class="file">
+                           <input type="file" />
+                           </label>
+                           <% } %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row" class="buttons" id="buttons">
+                  <div class="col-button">
+                     <!-- <input type="Submit" id="save" name="save" Value="SAVE" onclick="redirectToSection('TicketIncident')"> -->
+                     <input type="Submit" id="save" name="save" Value="SAVE">
+                     <!-- <input type="Submit" id="submit" name="submit" Value="SUBMIT">
+                        <input type="Submit" id="cancel" name="cancel" Value="CANCEL">
+                        <input type="Submit" id="close" name="close" Value="CLOSE"> -->
+                     <input type="Submit" id="clear" name="clear" Value="CLEAR">
+                     <input type="Submit" id="searchticket" name="searchticket" Value="SEARCH">
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div id="Change Request" class="tabcontent">
+            <h3>Change Request (Scheduled Maintainance Activity)</h3>
+            <form method="GET">
+               <div class="row">
+                  <div class="col-25">
+                     <label for="companyname">Company Name</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="companyname" name="companyname" placeholder="Company name..">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="changeid">Change ID</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="changeid" name="changeid" placeholder="KTCR-xxxxx-DDMMYY...">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="Description">Description</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="Description" name="Description" placeholder="Description..">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="priority">Priority</label>
+                  </div>
+                  <div class="col-75">
+                     <select name="priority">
+                        <option value="High" name="high">High</option>
+                        <option value="Medium" name="medium">Medium</option>
+                        <option value="Low" name="low">Low</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="requestedby">Requested By</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="requestedby" name="requestedby" placeholder="Requested By..">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="requesteddate">Requested Date</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="Date" id="requesteddate" name="requesteddate">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="impactanalysis">Impact Analysis</label>
+                  </div>
+                  <div class="col-75">
+                     <textarea id="richtext" name="impactanalysis" rows="4" columns="50" style="height: 100px; width: 400px"></textarea>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="riskassesment">Risk Assesment</label>
+                  </div>
+                  <div class="col-75">
+                     <textarea id="richtext" name="riskassesment" rows="4" columns="50" style="height: 100px; width: 400px"></textarea>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="assignedresource">Assigned Resource</label>
+                  </div>
+                  <div class="col-75">
+                     <select name="assignedresource">
+                        <option value="Mohsin" name="mohsin">Mohsin</option>
+                        <option value="Rajeesh" name="rajeesh">Rajeesh</option>
+                        <option value="J Kumar" name="jk">J Kumar</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="impactedservice">Impacted Service</label>
+                  </div>
+                  <div class="col-75">
+                     <select name="impactedservice">
+                        <option value="BMR" name="bmr">BMR</option>
+                        <option value="PMN" name="PMN">PMN</option>
+                     </select>
+                  </div>
+               </div>
+               <!-- 		  <div class="row">
+                  <div class="col-25">
+                     <label for="incidenttype">Severity</label>
+                   </div>
+                   <div class="col-75">
+                  <select name="severity">
+                  	<option value="High" name="high">High</option>
+                  	<option value="Medium" name="medium">Medium</option>
+                  	<option value="Low" name="low">Low</option>
+                  </select>
+                   </div>
+                  </div> -->
+               <div class="row">
+                  <div class="col-25">
+                     <label for="approvedby">Approved By</label>
+                  </div>
+                  <div class="col-75">
+                     <select name="approvedby">
+                        <option value="Aziz" name="aziz">Aziz</option>
+                        <option value="Giri" name="giri">Giri</option>
+                        <option value="Mohsin" name="mohsin">Mohsin</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="approveddate">Approved Date</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="Date" id="approveddate" name="approveddate">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="approvalcode">Approval Code</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="approvalcode" name="approvalcode" placeholder="Approval Code..">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="status">Status</label>
+                  </div>
+                  <div class="col-75">
+                     <select name="status" class="status">
+                        <option value="Open" name="high">Open</option>
+                        <option value="Approved" name="approved">Approved</option>
+                        <option value="In Progress" name="inprogress">In Progress</option>
+                        <option value="Closed" name="closed">Closed</option>
+                        <option value="Canceled" name="canceled">Canceled</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="row" class="buttons" id="buttons">
+                  <div class="col-button">
+                     <input type="Submit" id="save" name="save" Value="SAVE">
+                     <input type="Submit" id="saveandsubmit" name="saveandsubmit" Value="SAVE & SUBMIT">
+                     <input type="Submit" id="approve" name="approve" Value="APPROVE">
+                     <input type="Submit" id="cancel" name="cancel"Value="CANCEL">
+                     <input type="Submit" id="close" name="close"Value="CLOSE">
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div id="Reports" class="tabcontent">
+            <h3>Reports</h3>
+            <div class="row">
+               <div class="report-form">
+                  <center>
+                     <table cellspacing="5" bgcolor="white" style="border: 2px; border-radius: 20px;">
+                        <!-- <caption><b>Reports</b></caption> -->
+                        <!-- 			        <tr>
+                           <th rowspan="2">Name</th>
+                           <th colspan="4">Score</th>
+                           </tr> -->
+                        <tr>
+                           <th class="headr">Report</th>
+                           <th class="headr">From Date</th>
+                           <th class="headr">To Date</th>
+                           <th class="headr">Status</th>
+                        </tr>
+                        <tr>
+                           <td>
+                              <select name="reportname" class="reportname" id="reportname">
+                                 <option value="Incidents" name="openincidents">Incidents</option>
+                                 <option value="Change Requestes" name="changerequest">Change Requestes</option>
+                              </select>
+                           </td>
+                           <td><input type="date" id="fromdt"></td>
+                           <td><input type="date" id="todt"></td>
+                           <td>
+                              <select name="reportstatus" id="reportstatus" class="reportstatus">
+                                 <option value="Open" name="open">Open</option>
+                                 <option value="Pending"  border-radius: 20px;ame="pending">Pending</option>
+                                 <option value="Closed" name="closed">Closed</option>
+                              </select>
+                           </td>
+                        </tr>
+                        <tr>
+                           <th colspan="5" height="30">
+                              <input type="submit" value="Generate Report" onclick="Sub()">
+                           </th>
+                        </tr>
+                     </table>
+                     <br>
+                     <table cellspacing="5" bgcolor="white" border="2px" 
+                        height="400" width=80% cellpadding="5" id="TableScore" style="display: none;">
+                        <tr>
+                           <th class="headr" width="180">ID</th>
+                           <th class="headr">Comapny Name</th>
+                           <th class="headr">Reported Date</th>
+                           <th class="headr">Reported By</th>
+                           <th class="headr">Assigned To</th>
+                           <th class="headr">Client / Department</th>
+                           <th class="headr">Impacted Service</th>
+                           <th class="headr">SLA</th>
+                           <th class="headr">Severity</th>
+                           <th class="headr">Status</th>
+                           <th class="headr">Issue Description</th>
+                        </tr>
+                     </table>
+                  </center>
+                  <!-- 			    <script type="text/javascript">
+                     </script>		    	
+                     -->		    
+               </div>
+            </div>
+         </div>
+         <div id="RCA" class="tabcontent">
+            <h3>RCA</h3>
+            <div class="row">
+               <div class="col-25">
+                  <label for="incidentid">Issue ID</label>
+               </div>
+               <div class="col-75">
+                  <input type="text" id="incidentid" name="incidentid" placeholder="KTIR-xxxxx-DDMMYY...">
+                  <button class="buttons">Search</button>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="incidentdt">Issue Date</label>
+               </div>
+               <div class="col-75">
+                  <input type="datetime-local" id="incidentdt">				
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="chronologyofincidents ">Chronology of Incidents</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="chronologyofincidents" name="chronologyofincidents" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="timeofincident">Time of Incident</label>
+               </div>
+               <div class="col-75">
+                  <input type="datetime-local" id="timeofincident">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="rcareportedby ">Reported by</label>
+               </div>
+               <div class="col-75">
+                  <input type="text" id="rcareportedby">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="rcareportedto">Reported to</label>
+               </div>
+               <div class="col-75">
+                  <input type="text" id="rcareportedto">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="businessimpact ">Business Impact</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="businessimpact" name="businessimpact" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="userimpact">User Impact</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="userimpact" name="userimpact" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="explainimmediateactiontaken">Explain Immediate Action Taken</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="explainimmediateactiontaken" name="explainimmediateactiontaken" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="investigatingrootcause">Investigating Root Cause</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="investigatingrootcause" name="investigatingrootcause" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="recommendations">Recommendations</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="recommendations" name="recommendations" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="permenantsolution">Permenant Solution</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="permenantsolution" name="permenantsolution" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-25">
+                  <label for="standardoperatingprocedures">Standard operating procedures to avoid any lapses in existing support process</label>
+               </div>
+               <div class="col-75">
+                  <textarea id="standardoperatingprocedures" name="standardoperatingprocedures" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+               </div>
+            </div>
+            <div class="row" class="buttons" id="buttons">
+               <div class="col-button">
+                  <input type="Submit" id="rcasave" name="save" Value="SAVE">
+                  <input type="Submit" id="rcasaveandsubmit" name="saveandsubmit" Value="SAVE & SUBMIT">
+                  <input type="Submit" id="edit" name="edit" Value="EDIT">
+               </div>
+            </div>
+         </div>
+         <div id="Known Issue Repository" class="tabcontent">
+            <!--  Accordian for Known issue repository end-->
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+               <div class="accordion-item">
+                  <h2 class="accordion-header">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                     Application
+                     </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                     <div class="accordion-body">
+                        <p>Application is very slow, taking long to load single form.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item">
+                  <h2 class="accordion-header">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                     Server
+                     </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                     <div class="accordion-body">
+                        <p>Hard disk corrupted.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item">
+                  <h2 class="accordion-header">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                     Database
+                     </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                     <div class="accordion-body">
+                        <p>Report is running very slow.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item">
+                  <h2 class="accordion-header">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                     Network
+                     </button>
+                  </h2>
+                  <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                     <div class="accordion-body">
+                        <p>Port for application is blocking.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--  Accordian for Known issue repository end-->
+         </div>
+         <div id="Project Documents" class="tabcontent">
+            <h3>Project Documents</h3>
+            <!--will have tree format folder structure and only owner able to create and upload files*/ -->
+            <!-- <p>Project Documents.</p>  cannot delete file and folder only admin can do */ -->
+            <div class="row" style="background-color: #B6F4FF;">
+               <ul class="tree" style="list-style: none;color: #FFC90E;">
+                  <li>
+                     <!-- <details open> -->
+                     <!-- <summary class="fa fa-folder"><span style="color: black;">BMR</span></summary> -->
+                     <ul style="list-style: none; ">
+                        <li style="list-style: none;">
+                           <details>
+                              <summary class="fa fa-folder"><span style="color: black;">Application</span></summary>
+                              <ul style="color: black;">
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">BMR</span></summary>
+                                       <ul style="color: black;">
+                                          <li>User Guide.pdf</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">PMN</span></summary>
+                                       <ul style="color: black;">
+                                          <li>User Guide.pdf</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">NETSUITE</span></summary>
+                                       <ul style="color: black;">
+                                          <li>User Guide.pdf</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">OPERA</span></summary>
+                                       <ul style="color: black;">
+                                          <li>User Guide.pdf</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                              </ul>
+                           </details>
+                        </li>
+                        <li>
+                           <details>
+                              <summary class="fa fa-folder"><span style="color: black;">Database</span></summary>
+                              <ul style="color: black;">
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">BMR</span></summary>
+                                       <ul style="color: black;">
+                                          <li>BMR_Database_structure.docx</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">PMN</span></summary>
+                                       <ul style="color: black;">
+                                          <li>PMN_Database_structure.docx</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                              </ul>
+                           </details>
+                        </li>
+                        <li>
+                           <details>
+                              <summary class="fa fa-folder"><span style="color: black;">Server</span></summary>
+                              <ul style="color: black;">
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">BMR</span></summary>
+                                       <ul style="color: black;">
+                                          <li>BMR_Server_guide.docx</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">PMN</span></summary>
+                                       <ul style="color: black;">
+                                          <li>PMN_Server_guide.docx</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                                 <li style="list-style: none;">
+                                    <details>
+                                       <summary class="fa fa-folder" style="color: #FFC90E;"><span style="color: black;">OPERA</span></summary>
+                                       <ul style="color: black;">
+                                          <li>OPERA_Server_guide.docx</li>
+                                          <li>Readme.txt</li>
+                                       </ul>
+                                    </details>
+                                 </li>
+                              </ul>
+                           </details>
+                        </li>
+                     </ul>
+                     <!-- </details> -->
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- Timesheet Modal -->
+      <div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Timesheet</strong></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col">
+                        <label for="date" id="currdt"></label>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lbllogintime">Login Time</label>
+                     </div>
+                     <div class="col">
+                        <input type="time" id="logintime">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lblbrktimefrom">Break Time From</label>
+                     </div>
+                     <div class="col">
+                        <input type="time" id="brktimefrom">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lblbrktimeto">Break Time To</label>
+                     </div>
+                     <div class="col">
+                        <input type="time" id="brktimeto">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lbllogouttime">Logout Time</label>
+                     </div>
+                     <div class="col">
+                        <input type="time" id="logouttime">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lblworktype">Work Type</label>
+                     </div>
+                     <div class="col">
+                        <select name="wt" class="worktype">
+                           <option value="InOffice" name="InOffice">In Office</option>
+                           <option value="WrokFromHome" name="WrokFromHome">Wrok From Home</option>
+                           <option value="PaidLeave" name="Paid Leave">Paid Leave</option>
+                           <option value="LeaveWithoutPay" name="LeaveWithoutPay">Leave Without Pay</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lblarccode">ARC Code</label>
+                     </div>
+                     <div class="col">
+                        <input type="text" id="arccode" placeholder="ARC Code..">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label for="lblcomments">Comments</label>
+                     </div>
+                     <div class="col">
+                        <textarea id="richtext" name="timesheetcomments" rows="4" columns="50" style="height: 100px; width: 400px" ></textarea>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <center>
+                     <table bgcolor="white" style="border: 2px; font-size: 15px">
+                        <tr>
+                           <p>August 2023</p>
+                        </tr>
+                        <tr style="background-color: #10705D; color: White;">
+                           <th>Select</th>
+                           <th>Date</th>
+                           <th>Work Type</th>
+                           <th>Login Time</th>
+                           <th>Break Start</th>
+                           <th>Break End</th>
+                           <th>Login Out</th>
+                           <th>ARC code</th>
+                           <th>Comments</th>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox"></td>
+                           <td>01-AUG-2023</td>
+                           <td>Office</td>
+                           <td>9:00 AM</td>
+                           <td>1:00 PM</td>
+                           <td>1:30 PM</td>
+                           <td>5:30 PM</td>
+                           <td>GIRI - G0AHD</td>
+                           <td>Worked on JIRA BMR-1440</td>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox"></td>
+                           <td>02-AUG-2023</td>
+                           <td>Office</td>
+                           <td>9:10 AM</td>
+                           <td>1:30 PM</td>
+                           <td>2:00 PM</td>
+                           <td>5:40 PM</td>
+                           <td></td>
+                           <td>Worked on Netsuite Integration</td>
+                        </tr>
+                     </table>
+                  </center>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-primary">Edit</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <script type="text/javascript" src="/js/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+   </body>
+</html>
